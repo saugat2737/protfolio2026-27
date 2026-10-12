@@ -1,0 +1,16 @@
+
+{
+  "name": "saugat-new",
+  "version": "1.0.0",
+  "description": "A premium, highly refined personal portfolio engineered with semantic HTML5, modern tokenized CSS, and vanilla ES modules (no frameworks, zero heavy dependencies).",
+  "main": "data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "puppeteer-core": "^25.13.0"
+  }
+}

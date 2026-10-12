@@ -1,0 +1,4 @@
+node_modules/
+lighthouse-report.json
+lighthouse-desktop.json
+screenshots/
