@@ -933,17 +933,17 @@ function initSrIntro() {
     overlay.classList.add('active');
   });
 
-  // Smooth dismiss after monogram stroke completion (1.6s)
+  // Smooth dismiss after monogram stroke completion and composition hold (3.1s)
   const introTimer = setTimeout(() => {
     overlay.classList.add('dismissed');
     setTimeout(() => {
       if (overlay.parentNode) {
         overlay.remove();
       }
-    }, 700);
-  }, 1650);
+    }, 750);
+  }, 3100);
 
-  // Safety fallback: ensure dismissal even on background tab or slow device
+  // Safety fallback: allow instant dismiss on Esc key
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !overlay.classList.contains('dismissed')) {
       clearTimeout(introTimer);
