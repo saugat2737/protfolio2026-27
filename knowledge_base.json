@@ -1,0 +1,172 @@
+{
+  "profile": {
+    "name": "Saugat Rauniyar",
+    "role": "Software Engineer · Cybersecurity Builder · AI Product Developer",
+    "location": "Bengaluru, India",
+    "institution": "Siddaganga Institute of Technology (SIT)",
+    "degree": "B.E. Computer Science and Engineering",
+    "period": "2025 — 2029",
+    "cgpa": "9.5 / 10.0",
+    "headline": "I build AI, cybersecurity, and full-stack products that solve real problems.",
+    "bio": "Computer Science student specializing in autonomous threat intelligence, medical vision reviewability, and high-concurrency systems. Focused on building production software across AI, web forensics, and distributed backend architectures.",
+    "status": "Open to technical internships for 2026–27",
+    "publicEmail": "saugat.rauniyar.work@gmail.com",
+    "github": "https://github.com/saugat2737",
+    "linkedin": "https://www.linkedin.com/feed/update/urn:li:activity:7506570341339561984/",
+    "medium": "https://medium.com/@saugat.rauniyar.work/"
+  },
+  "flagshipProjects": [
+    {
+      "id": "impostr",
+      "name": "IMPOSTR",
+      "category": "Cybersecurity · Threat Intelligence · AI",
+      "status": "Live",
+      "award": "3rd Place · HackaFest 2026",
+      "summary": "AI-assisted domain and URL threat-forensics platform aggregating multi-source threat telemetry, DNS/WHOIS/SSL data, and NLP-based heuristic analysis to assess suspicious infrastructure in under 2 seconds.",
+      "problem": "Traditional phishing detection relies on slow manual blacklists or single-point checks. Attackers quickly cycle disposable domains and polymorphic hosting infrastructure, evading legacy static filters before feeds update.",
+      "solution": "Aggregates live threat feeds (URLhaus, PhishTank, OpenPhish), automated SSL certificate transparency logs (crt.sh), DNS history, and an NLP scanner into a consolidated forensic score.",
+      "technologies": ["Python", "FastAPI", "React", "DNS / WHOIS", "SSL Inspection", "OpenPhish", "URLhaus"],
+      "contributions": [
+        "Engineered threat telemetry collection pipeline querying multiple OSINT feeds asynchronously.",
+        "Built multi-vector URL forensic scoring engine evaluating domain age, certificate trust, and lexical entropy.",
+        "Created interactive investigation interface and node relationship graph visualization.",
+        "Reduced average lookup latency from 6.8s to 1.4s using parallel asynchronous worker routines."
+      ],
+      "limitations": "Subject to public OSINT API rate limits during high-volume spikes.",
+      "links": {
+        "demo": "https://impostr-virid.vercel.app/",
+        "github": "https://github.com/saugat2737/Impostr",
+        "caseStudy": "#/case-study/impostr"
+      }
+    },
+    {
+      "id": "lucerna",
+      "name": "LUCERNA",
+      "category": "Healthcare AI · Medical Imaging · Human-in-the-Loop",
+      "status": "In development",
+      "disclaimer": "Prototype under development, not a clinically validated diagnostic product.",
+      "summary": "AI-assisted radiological imaging review workstation centering on auditable human-in-the-loop oversight, structured reviewability, and clinician verification interfaces.",
+      "problem": "Automated healthcare AI models are frequently treated as 'black boxes', causing clinician distrust, high alert fatigue, and lack of accountability in diagnostic support.",
+      "solution": "Built around verifiable human-in-the-loop workflows. Highlights candidate regions of interest, calculates spatial confidence overlays, and mandates explicit clinician sign-off rather than declaring automated diagnoses.",
+      "technologies": ["Python", "Computer Vision", "PyTorch / ONNX", "TypeScript", "Canvas / WebGL"],
+      "contributions": [
+        "Designed clinician triage UI, reviewability flows, and candidate heatmap inspection.",
+        "Architected medical image inspection canvas viewport with side-by-side comparison and contrast windowing presets.",
+        "Implemented human-in-the-loop discrepancy logging and clinician audit trail schema.",
+        "Prototyped client-side zero-cloud WebGL/ONNX pre-processing to safeguard sensitive patient records on local clinical intranets."
+      ],
+      "limitations": "Model training dataset strictly limited to open-access anonymized research benchmarks.",
+      "links": {
+        "caseStudy": "#/case-study/lucerna"
+      }
+    },
+    {
+      "id": "dormex",
+      "name": "DORMEX",
+      "category": "Full-Stack · Workflow Automation · Student Services",
+      "status": "In development",
+      "summary": "Hostel and campus accommodation management platform streamlining room allocation, vacancy locks, and maintenance complaint lifecycles.",
+      "problem": "University hostel allocation often depends on paper forms, untracked spreadsheets, and disorganized counter queues, resulting in double-booked beds and lost maintenance requests.",
+      "solution": "Provides an integrated platform separating student portals, warden verification panels, and real-time room capacity tracking with automated waitlisting.",
+      "technologies": ["JavaScript", "Node.js", "Express", "PostgreSQL", "Tailwind CSS"],
+      "contributions": [
+        "Designed relational PostgreSQL schema with partial unique indexes (uq_seat_current, uq_student_current) preventing race conditions and double bookings.",
+        "Built server-authoritative seat allocation engine and turn scheduler with ACID transactional safety.",
+        "Implemented role-based access control (Student, Proctor, Warden, Chief Warden, Super Admin).",
+        "Authored zero-dependency test harness supporting live PostgreSQL and embedded in-memory database (pg-mem)."
+      ],
+      "links": {
+        "github": "https://github.com/saugat2737/DORMEX",
+        "caseStudy": "#/case-study/dormex"
+      }
+    }
+  ],
+  "commercialWork": [
+    {
+      "id": "capital-marketing",
+      "client": "Capital Marketing",
+      "domain": "capitalmarketingnp.com",
+      "description": "Production commercial web platform for a corporate gifting firm in Nepal, featuring multi-category catalog showcase, responsive multi-screen layout, and client inquiry generation funnels.",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "SEO Structured Meta"],
+      "url": "https://capitalmarketingnp.com",
+      "github": "https://github.com/saugat2737/capitalmarketingnp"
+    },
+    {
+      "id": "shubhlabh",
+      "client": "ShubhLabh Construction",
+      "domain": "shubhlabhconstruction.com.np",
+      "description": "Corporate web presence for an infrastructure and commercial construction enterprise, showcasing civil project portfolios, machinery capabilities, and direct tender inquiry channels.",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "Responsive Design", "DNS Deployment"],
+      "url": "https://shubhlabhconstruction.com.np/",
+      "github": "https://github.com/saugat2737/shubhlabhconstruction"
+    }
+  ],
+  "achievements": [
+    {
+      "title": "3rd Place · HackaFest 2026",
+      "organization": "Biratnagar International College",
+      "date": "2026",
+      "project": "IMPOSTR",
+      "team": "Team Incognitus",
+      "summary": "Awarded 3rd place among regional engineering teams in a 36-hour sprint for pitching and validating IMPOSTR live domain forensics platform before an expert judging panel.",
+      "proofLink": "./assets/1.jpeg",
+      "proofType": "Certificate of Winning"
+    },
+    {
+      "title": "From URL to Verdict: Constructing a Multi-Vector Web Threat Forensics Engine",
+      "organization": "Medium",
+      "date": "August 2026",
+      "type": "Technical Publication",
+      "summary": "11-minute deep dive paper covering OSINT threat telemetry latency, heuristic verdict scoring formulas, DNS/WHOIS/SSL forensics, and relationship graphs.",
+      "url": "https://medium.com/@saugat.rauniyar.work/from-url-to-verdict-constructing-a-multi-vector-web-threat-forensics-engine-c9eb4722d352"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "APIsec Certified Practitioner (ACP)",
+      "issuer": "APIsec University",
+      "date": "October 2026",
+      "score": "93 / 100",
+      "summary": "Covered API authentication & authorization flaws, OWASP API Security Top 10 vulnerabilities, API documentation audits, and server hardening.",
+      "proofUrl": "https://www.linkedin.com/feed/update/urn:li:activity:7506570341339561984/",
+      "verificationUrl": "https://app.kajabi.com/certificates/2cc65bcc"
+    },
+    {
+      "title": "Prompt Engineering",
+      "issuer": "Infosys Springboard",
+      "date": "2026",
+      "summary": "Structured prompt methodologies, context distillation, and LLM orchestration workflows."
+    },
+    {
+      "title": "Claude Code in Action",
+      "issuer": "Anthropic",
+      "date": "2026",
+      "summary": "Agentic coding environments, tool use orchestration, and terminal workflow integration."
+    },
+    {
+      "title": "Getting Started with AI on Jetson Nano",
+      "issuer": "NVIDIA",
+      "date": "2025",
+      "summary": "Embedded computer vision, edge deep learning deployment, and TensorRT inference pipeline setup."
+    },
+    {
+      "title": "Neural Network & NLP Implementation",
+      "issuer": "Infosys Springboard",
+      "date": "2025",
+      "summary": "Fundamentals of dense neural architectures, sequence modeling, and tokenization techniques."
+    },
+    {
+      "title": "Generative AI Literacy",
+      "issuer": "NASSCOM FutureSkills Prime",
+      "date": "2025",
+      "summary": "Foundational generative model capabilities, evaluation metrics, and responsible AI governance."
+    }
+  ],
+  "technicalSkills": {
+    "languages": ["Python", "JavaScript / TypeScript", "C / C++", "Java", "SQL"],
+    "frontend": ["HTML5 & Semantic CSS3", "Tailwind CSS", "React.js / Next.js", "Canvas 2D / WebGL"],
+    "backend": ["Node.js & Express", "FastAPI / Python", "PostgreSQL & MySQL", "REST APIs & Webhooks"],
+    "securityAI": ["Threat Forensics & OSINT", "DNS / WHOIS / SSL Forensics", "OpenCV & OCR", "Prompt Engineering & Agents", "API Security & OWASP Top 10"],
+    "tools": ["Git & GitHub", "Vercel / Cloud Deployment", "VS Code & Terminal Tooling", "Google Colab & Linux"]
+  }
+}

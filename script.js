@@ -913,10 +913,177 @@ Status: Building...`,
 }
 
 /* ==========================================================================
+   11. SR MONOGRAM CINEMATIC INTRO CONTROLLER
+   ========================================================================== */
+function initSrIntro() {
+  const overlay = document.getElementById('srIntroOverlay');
+  if (!overlay) return;
+
+  // Respect prefers-reduced-motion
+  if (prefersReduced) {
+    overlay.classList.add('dismissed');
+    setTimeout(() => {
+      overlay.remove();
+    }, 50);
+    return;
+  }
+
+  // Trigger animation sequence
+  requestAnimationFrame(() => {
+    overlay.classList.add('active');
+  });
+
+  // Smooth dismiss after monogram stroke completion (1.6s)
+  const introTimer = setTimeout(() => {
+    overlay.classList.add('dismissed');
+    setTimeout(() => {
+      if (overlay.parentNode) {
+        overlay.remove();
+      }
+    }, 700);
+  }, 1650);
+
+  // Safety fallback: ensure dismissal even on background tab or slow device
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !overlay.classList.contains('dismissed')) {
+      clearTimeout(introTimer);
+      overlay.classList.add('dismissed');
+    }
+  }, { once: true });
+}
+
+/* ==========================================================================
+   12. REAL-TIME REEL / FLIP CLOCK CONTROLLER
+   ========================================================================== */
+function initReelClock() {
+  const clockEl = document.getElementById('navClock');
+  if (!clockEl) return;
+
+  // Populate ribbons 0-9
+  const digitEls = clockEl.querySelectorAll('.reel-digit');
+  digitEls.forEach(digit => {
+    const ribbon = digit.querySelector('.reel-ribbon');
+    if (!ribbon) return;
+    ribbon.innerHTML = '';
+    for (let i = 0; i <= 9; i++) {
+      const span = document.createElement('span');
+      span.textContent = i;
+      ribbon.appendChild(span);
+    }
+  });
+
+  // Track previous digit states so only changed digits animate
+  const currentDigits = {
+    h0: -1,
+    h1: -1,
+    m0: -1,
+    m1: -1,
+    s0: -1,
+    s1: -1
+  };
+
+  // Detect and set local timezone label
+  const tzEl = document.getElementById('navClockTz');
+  if (tzEl) {
+    try {
+      const tzName = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      // If IST / Asia/Kolkata
+      if (tzName.includes('Kolkata') || tzName.includes('Calcutta') || tzName.includes('India')) {
+        tzEl.textContent = 'IST';
+      } else {
+        // Short timezone abbreviation or city name
+        const shortName = tzName.split('/').pop().replace(/_/g, ' ').substring(0, 4).toUpperCase();
+        tzEl.textContent = shortName || 'LCL';
+      }
+    } catch {
+      tzEl.textContent = 'LCL';
+    }
+  }
+
+  function updateClock(isInitial = false) {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+
+    const newDigits = {
+      h0: parseInt(hours[0], 10),
+      h1: parseInt(hours[1], 10),
+      m0: parseInt(minutes[0], 10),
+      m1: parseInt(minutes[1], 10),
+      s0: parseInt(seconds[0], 10),
+      s1: parseInt(seconds[1], 10)
+    };
+
+    const digitHeight = 17; // matches CSS reel-digit and span height
+
+    for (const [key, val] of Object.entries(newDigits)) {
+      if (isInitial || currentDigits[key] !== val) {
+        currentDigits[key] = val;
+        const digitWrap = clockEl.querySelector(`[data-digit-id="${key}"]`);
+        if (digitWrap) {
+          const ribbon = digitWrap.querySelector('.reel-ribbon');
+          if (ribbon) {
+            ribbon.style.transform = `translateY(-${val * digitHeight}px)`;
+          }
+        }
+      }
+    }
+  }
+
+  // Initial immediate sync
+  updateClock(true);
+
+  // Self-synchronizing interval aligned to device clock boundary
+  let timerId = null;
+  function scheduleNextTick() {
+    const now = Date.now();
+    const delay = 1000 - (now % 1000);
+    timerId = setTimeout(() => {
+      updateClock(false);
+      scheduleNextTick();
+    }, delay);
+  }
+  scheduleNextTick();
+
+  // Active nav link spy observer
+  initNavSpy();
+}
+
+/* ==========================================================================
+   13. ACTIVE NAVIGATION SCROLL SPY
+   ========================================================================== */
+function initNavSpy() {
+  const sections = document.querySelectorAll('section[id], header.hero[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  if (!sections.length || !navLinks.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === `#${id}`) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(sec => observer.observe(sec));
+}
+
+/* ==========================================================================
    INITIALIZATION
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initSrIntro();
+  initReelClock();
   initScrollReveals();
   initHeroCanvas();
   initImpostrInteraction();
@@ -928,3 +1095,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initMarquee();
   initTerminal();
 });
+
