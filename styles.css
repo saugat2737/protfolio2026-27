@@ -509,13 +509,66 @@ nav {
   .menu-toggle { display: grid; }
 }
 
+@media (max-width: 640px) {
+  :root {
+    --nav-h: 56px;
+  }
+  nav {
+    top: max(8px, env(safe-area-inset-top));
+    width: calc(100% - 20px);
+    padding: 6px 10px 6px 14px;
+    border-radius: 9999px;
+  }
+  .brand {
+    font-size: 16px;
+    letter-spacing: -0.02em;
+  }
+  .nav-actions {
+    gap: 6px;
+  }
+  .theme-toggle {
+    width: 34px;
+    height: 34px;
+  }
+  .theme-toggle svg {
+    width: 15px;
+    height: 15px;
+  }
+  .menu-toggle {
+    width: 36px;
+    height: 36px;
+    gap: 5px;
+  }
+  .menu-toggle i {
+    width: 16px;
+  }
+  /* On mobile, SAUGAT.OS button is prominently available inside the mobile menu drawer */
+  .os-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  nav {
+    top: max(6px, env(safe-area-inset-top));
+    width: calc(100% - 14px);
+    padding: 5px 8px 5px 12px;
+  }
+  .brand {
+    font-size: 15px;
+  }
+  .nav-actions {
+    gap: 4px;
+  }
+}
+
 /* Mobile Navigation Overlay */
 #mobileMenu {
   position: fixed;
   inset: 0;
   z-index: 55;
   background: var(--bg);
-  padding: max(100px, calc(env(safe-area-inset-top) + 84px)) var(--pad) max(28px, env(safe-area-inset-bottom));
+  padding: max(84px, calc(env(safe-area-inset-top) + 68px)) var(--pad) max(20px, env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -2526,11 +2579,18 @@ html.js-ready [data-r].in {
 @media (max-width: 640px) {
   .nav-clock-wrap {
     padding: 3px 8px;
-    gap: 5px;
+    gap: 4px;
+    height: 32px;
   }
   .nav-clock-tz,
   .reel-colon.sec-colon,
   .reel-digit-group.seconds {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-clock-wrap {
     display: none;
   }
 }
