@@ -16,7 +16,6 @@ export const PROJECTS = [
     contribution: "Engineered threat telemetry aggregation pipeline, multi-vector URL forensic scoring engine, and interactive visual graph.",
     links: {
       demo: "https://impostr-virid.vercel.app/",
-      github: "https://github.com/saugat2737/Impostr",
       caseStudy: "#impostr-case-study"
     },
     caseStudy: {
@@ -140,7 +139,6 @@ export const PROJECTS = [
     tech: ["JavaScript", "Node.js", "Express", "PostgreSQL", "Tailwind CSS"],
     contribution: "Full-stack architecture, relational database schema design, and server-authoritative seat allocation engine.",
     links: {
-      github: "https://github.com/saugat2737/DORMEX",
       caseStudy: "#dormex-case-study"
     },
     caseStudy: {
@@ -203,7 +201,7 @@ export const PROJECTS = [
         <text x="710" y="95" text-anchor="middle" fill="currentColor" font-size="11" font-family="var(--m)">Database</text>
         <text x="710" y="115" text-anchor="middle" fill="var(--mute)" font-size="9" font-family="var(--m)">PostgreSQL</text>
       </svg>`,
-      evidence: "Active open-source repository at github.com/saugat2737/DORMEX containing domain modular services and complete schema test harnesses.",
+      evidence: "Modular domain services architecture and complete schema test harnesses.",
       limitations: "Frontend visual SVG floor plan mapping actively in progress; currently fully functional via tested API endpoints.",
       nextSteps: "Integrating SVG coordinate overlays for interactive graphic seat picking."
     }
@@ -217,9 +215,8 @@ export const CLIENT_WORK = [
     domain: "capitalmarketingnp.com",
     tagline: "Corporate Gifting & Merchandising Website",
     description: "Production commercial website built for a Nepal-based corporate gifting firm. Features catalog presentation, company background, and client inquiry generation workflows.",
-    desktopImage: "./assets/capital.png",
+    desktopImage: "./assets/capital.jpg",
     url: "https://capitalmarketingnp.com",
-    repo: "https://github.com/saugat2737/capitalmarketingnp",
     deliverables: ["Product Showcase", "Inquiry Workflow", "Responsive Multi-Screen UI", "SEO & Meta Optimization"]
   },
   {
@@ -228,9 +225,8 @@ export const CLIENT_WORK = [
     domain: "shubhlabhconstruction.com.np",
     tagline: "Commercial Construction Firm Presence",
     description: "Responsive corporate website for an engineering and construction enterprise, showcasing civil project portfolios, equipment capabilities, and client contact channels.",
-    desktopImage: "./assets/shubh.png",
+    desktopImage: "./assets/shubh.jpg",
     url: "https://shubhlabhconstruction.com.np/",
-    repo: "https://github.com/saugat2737/shubhlabhconstruction",
     deliverables: ["Project Portfolio Grid", "Service Architecture", "Mobile Performance", "Domain & DNS Deployment"]
   }
 ];
@@ -257,7 +253,7 @@ export const ACHIEVEMENTS = {
     certificateImage: "./assets/1.jpeg",
     teamImage: "./assets/impostr-teammate.jpg",
     dashboardImage: "./assets/imposter-img.png",
-    proofUrl: "./assets/1.jpeg"
+    proofUrl: "https://lnkd.in/p/gGEhtfar"
   },
   categories: [
     {
@@ -270,7 +266,7 @@ export const ACHIEVEMENTS = {
           context: "Team Incognitus / IMPOSTR Project",
           detail: "Selected as 3rd place winners after intensive live demonstration of the multi-vector web threat forensics tool.",
           proofType: "Certificate",
-          proofLink: "./assets/1.jpeg"
+          proofLink: "https://lnkd.in/p/gGEhtfar"
         }
       ]
     },
@@ -452,3 +448,4 @@ export const TEAM_MEMBERS = [
     linkLabel: "LinkedIn"
   }
 ];
+

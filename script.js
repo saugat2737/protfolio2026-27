@@ -718,8 +718,7 @@ Type "impostr", "lucerna", or "dormex" for comprehensive specs.`,
 Category: Cybersecurity · Threat Intelligence · AI
 Award: 3rd Place — HackaFest 2026 (Biratnagar International College)
 Telemetry: URLhaus, PhishTank, OpenPhish, crt.sh, DNS/WHOIS/SSL
-Live Demo: <a href="https://impostr-virid.vercel.app/" target="_blank" rel="noopener">impostr-virid.vercel.app ↗</a>
-Source Code: <a href="https://github.com/saugat2737/Impostr" target="_blank" rel="noopener">github.com/saugat2737/Impostr ↗</a>`,
+Live Demo: <a href="https://impostr-virid.vercel.app/" target="_blank" rel="noopener">impostr-virid.vercel.app ↗</a>`,
 
     lucerna: () => `<span style="color:var(--acc)">LUCERNA</span> — Radiological Imaging Workstation
 Category: Healthcare AI · Human-in-the-Loop Review
@@ -730,11 +729,10 @@ Focus: Clinician auditability, spatial confidence heatmaps, manual override ergo
     dormex: () => `<span style="color:var(--acc)">DORMEX</span> — Campus Accommodation Engine
 Category: Full-Stack · Workflow Automation · Student Services
 Status: In development
-GitHub: <a href="https://github.com/saugat2737/DORMEX" target="_blank" rel="noopener">github.com/saugat2737/DORMEX ↗</a>
 Core: PostgreSQL partial unique index concurrency locks, server-authoritative turn scheduler.`,
 
-    clients: () => `Capital Marketing: <a href="https://capitalmarketingnp.com" target="_blank" rel="noopener">capitalmarketingnp.com ↗</a> (<a href="https://github.com/saugat2737/capitalmarketingnp" target="_blank" rel="noopener">Repo ↗</a>)
-ShubhLabh Construction: <a href="https://shubhlabhconstruction.com.np/" target="_blank" rel="noopener">shubhlabhconstruction.com.np ↗</a> (<a href="https://github.com/saugat2737/shubhlabhconstruction" target="_blank" rel="noopener">Repo ↗</a>)`,
+    clients: () => `Capital Marketing: <a href="https://capitalmarketingnp.com" target="_blank" rel="noopener">capitalmarketingnp.com ↗</a>
+ShubhLabh Construction: <a href="https://shubhlabhconstruction.com.np/" target="_blank" rel="noopener">shubhlabhconstruction.com.np ↗</a>`,
 
     achievements: () => `<span style="color:var(--bronze)">3rd Place · HackaFest 2026</span>
 Awarded by: Biratnagar International College
