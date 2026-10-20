@@ -224,7 +224,7 @@ function initImpostrInteraction() {
     { title: "Target Identification", text: "suspicious-link.example/login" },
     { title: "Telemetry & DNS Lookups", text: "crt.sh / DNS / WHOIS verification" },
     { title: "Feeds Cross-Referencing", text: "URLhaus · OpenPhish · PhishTank" },
-    { title: "Forensic Scoring & Verdict", text: "Risk index: 88/100 (Phishing)" }
+    { title: "Forensic Scoring & Verdict", text: "Illustrative Score: 88/100 (Suspicious)" }
   ];
 
   let ticking = false;
@@ -546,7 +546,7 @@ function initCertificatesRenderer() {
       <div class="cert-card-header">
         <div>
           <h4>${cert.title}</h4>
-          <span class="cert-issuer">${cert.organization} ${cert.score ? `· Score: ${cert.score}` : ''}</span>
+          <span class="cert-issuer">${cert.organization}</span>
         </div>
         <span class="mono" style="font-size:12px; color:var(--mute); white-space:nowrap;">${cert.date}</span>
       </div>
@@ -554,9 +554,17 @@ function initCertificatesRenderer() {
       <div class="cert-card-footer">
         <span class="mono" style="color:var(--mute); font-size:11px;">${cert.proofType}</span>
         ${cert.proofLink ? `
-          <a class="btn sm outline-acc" href="${cert.proofLink}" target="_blank" rel="noopener noreferrer">
-            View proof ↗
-          </a>
+          <div style="display:flex; gap:8px;">
+            ${cert.isImage ? `
+              <button type="button" class="btn sm outline-acc" data-view-proof="${cert.proofLink}" data-proof-title="${cert.title} — ${cert.organization}">
+                Preview ↗
+              </button>
+            ` : `
+              <a class="btn sm outline-acc" href="${cert.proofLink}" target="_blank" rel="noopener noreferrer">
+                View PDF ↗
+              </a>
+            `}
+          </div>
         ` : `
           <span class="mono" style="color:var(--mute); font-size:11px;">Completed</span>
         `}
@@ -745,7 +753,7 @@ Read: <a href="https://medium.com/@saugat.rauniyar.work/from-url-to-verdict-cons
     resume: () => `<a href="./assets/final-saugat-resume.pdf" target="_blank" rel="noopener">[OPEN RESUME PDF ↗]</a>  <a href="./assets/final-saugat-resume.pdf" download>[DOWNLOAD RESUME]</a>`,
 
     education: () => `Siddaganga Institute of Technology
-  B.E. Computer Science and Engineering, 2025 — 2029, CGPA 9.5
+  B.E. Computer Science and Engineering, 2025 — 2029 (Undergraduate Degree)
 
 Shikshadeep Higher Secondary School, Biratnagar
   Science, 2023 — 2025, GPA 3.46 / 4.0
@@ -768,9 +776,8 @@ OS: SAUGAT.OS
 Role: Software Engineer
 Focus: AI / Security / Full Stack
 Education: CSE @ SIT
-CGPA: 9.5
-HackaFest: 3rd Place
-Certifications: APIsec ACP (93/100), NVIDIA, Anthropic, Infosys
+HackaFest: 3rd Place (Team CyberDNA)
+Certifications: Scaler OS, NVIDIA, Anthropic, NASSCOM, Infosys
 Status: Building...`,
 
     gui: () => {
@@ -915,137 +922,14 @@ Status: Building...`,
    ========================================================================== */
 function initSrIntro() {
   const overlay = document.getElementById('srIntroOverlay');
-  if (!overlay) return;
-
-  // Respect prefers-reduced-motion
-  if (prefersReduced) {
-    overlay.classList.add('dismissed');
-    setTimeout(() => {
-      overlay.remove();
-    }, 50);
-    return;
-  }
-
-  // Trigger animation sequence
-  requestAnimationFrame(() => {
-    overlay.classList.add('active');
-  });
-
-  // Smooth dismiss after monogram stroke completion and composition hold (3.1s)
-  const introTimer = setTimeout(() => {
-    overlay.classList.add('dismissed');
-    setTimeout(() => {
-      if (overlay.parentNode) {
-        overlay.remove();
-      }
-    }, 750);
-  }, 3100);
-
-  // Safety fallback: allow instant dismiss on Esc key
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !overlay.classList.contains('dismissed')) {
-      clearTimeout(introTimer);
-      overlay.classList.add('dismissed');
-    }
-  }, { once: true });
+  if (overlay) overlay.remove();
 }
 
 /* ==========================================================================
    12. REAL-TIME REEL / FLIP CLOCK CONTROLLER
    ========================================================================== */
 function initReelClock() {
-  const clockEl = document.getElementById('navClock');
-  if (!clockEl) return;
-
-  // Populate ribbons 0-9
-  const digitEls = clockEl.querySelectorAll('.reel-digit');
-  digitEls.forEach(digit => {
-    const ribbon = digit.querySelector('.reel-ribbon');
-    if (!ribbon) return;
-    ribbon.innerHTML = '';
-    for (let i = 0; i <= 9; i++) {
-      const span = document.createElement('span');
-      span.textContent = i;
-      ribbon.appendChild(span);
-    }
-  });
-
-  // Track previous digit states so only changed digits animate
-  const currentDigits = {
-    h0: -1,
-    h1: -1,
-    m0: -1,
-    m1: -1,
-    s0: -1,
-    s1: -1
-  };
-
-  // Detect and set local timezone label
-  const tzEl = document.getElementById('navClockTz');
-  if (tzEl) {
-    try {
-      const tzName = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      // If IST / Asia/Kolkata
-      if (tzName.includes('Kolkata') || tzName.includes('Calcutta') || tzName.includes('India')) {
-        tzEl.textContent = 'IST';
-      } else {
-        // Short timezone abbreviation or city name
-        const shortName = tzName.split('/').pop().replace(/_/g, ' ').substring(0, 4).toUpperCase();
-        tzEl.textContent = shortName || 'LCL';
-      }
-    } catch {
-      tzEl.textContent = 'LCL';
-    }
-  }
-
-  function updateClock(isInitial = false) {
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-
-    const newDigits = {
-      h0: parseInt(hours[0], 10),
-      h1: parseInt(hours[1], 10),
-      m0: parseInt(minutes[0], 10),
-      m1: parseInt(minutes[1], 10),
-      s0: parseInt(seconds[0], 10),
-      s1: parseInt(seconds[1], 10)
-    };
-
-    const digitHeight = 17; // matches CSS reel-digit and span height
-
-    for (const [key, val] of Object.entries(newDigits)) {
-      if (isInitial || currentDigits[key] !== val) {
-        currentDigits[key] = val;
-        const digitWrap = clockEl.querySelector(`[data-digit-id="${key}"]`);
-        if (digitWrap) {
-          const ribbon = digitWrap.querySelector('.reel-ribbon');
-          if (ribbon) {
-            ribbon.style.transform = `translateY(-${val * digitHeight}px)`;
-          }
-        }
-      }
-    }
-  }
-
-  // Initial immediate sync
-  updateClock(true);
-
-  // Self-synchronizing interval aligned to device clock boundary
-  let timerId = null;
-  function scheduleNextTick() {
-    const now = Date.now();
-    const delay = 1000 - (now % 1000);
-    timerId = setTimeout(() => {
-      updateClock(false);
-      scheduleNextTick();
-    }, delay);
-  }
-  scheduleNextTick();
-
-  // Active nav link spy observer
-  initNavSpy();
+  // Clock simplified out for clean, uncluttered sticky navigation
 }
 
 /* ==========================================================================
@@ -1080,8 +964,7 @@ function initNavSpy() {
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
-  initSrIntro();
-  initReelClock();
+  initNavSpy();
   initScrollReveals();
   initHeroCanvas();
   initImpostrInteraction();

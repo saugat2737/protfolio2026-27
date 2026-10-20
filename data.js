@@ -16,6 +16,7 @@ export const PROJECTS = [
     contribution: "Engineered threat telemetry aggregation pipeline, multi-vector URL forensic scoring engine, and interactive visual graph.",
     links: {
       demo: "https://impostr-virid.vercel.app/",
+      github: "https://github.com/saugat2737/Impostr",
       caseStudy: "#impostr-case-study"
     },
     caseStudy: {
@@ -217,6 +218,7 @@ export const CLIENT_WORK = [
     description: "Production commercial website built for a Nepal-based corporate gifting firm. Features catalog presentation, company background, and client inquiry generation workflows.",
     desktopImage: "./assets/capital.jpg",
     url: "https://capitalmarketingnp.com",
+    github: "https://github.com/saugat2737/capitalmarketingnp",
     deliverables: ["Product Showcase", "Inquiry Workflow", "Responsive Multi-Screen UI", "SEO & Meta Optimization"]
   },
   {
@@ -227,6 +229,7 @@ export const CLIENT_WORK = [
     description: "Responsive corporate website for an engineering and construction enterprise, showcasing civil project portfolios, equipment capabilities, and client contact channels.",
     desktopImage: "./assets/shubh.jpg",
     url: "https://shubhlabhconstruction.com.np/",
+    github: "https://github.com/saugat2737/shubhlabhconstruction",
     deliverables: ["Project Portfolio Grid", "Service Architecture", "Mobile Performance", "Domain & DNS Deployment"]
   }
 ];
@@ -247,7 +250,7 @@ export const ACHIEVEMENTS = {
     title: "3rd Place · HackaFest 2026",
     awarder: "Biratnagar International College",
     date: "2026",
-    project: "IMPOSTR (Team Incognitus)",
+    project: "IMPOSTR (Team CyberDNA)",
     description: "Built and demonstrated IMPOSTR under intensive 36-hour hackathon constraints. Pitched domain telemetry scoring, automated threat-source cross-referencing, and live URL analysis to judges.",
     contribution: "Co-developer: Built the frontend analysis interface, browser extension integration, and threat-correlation engine.",
     certificateImage: "./assets/1.jpeg",
@@ -263,9 +266,9 @@ export const ACHIEVEMENTS = {
           title: "3rd Place · HackaFest 2026",
           organization: "Biratnagar International College",
           date: "2026",
-          context: "Team Incognitus / IMPOSTR Project",
+          context: "Team CyberDNA / IMPOSTR Project",
           detail: "Selected as 3rd place winners after intensive live demonstration of the multi-vector web threat forensics tool.",
-          proofType: "Certificate",
+          proofType: "Award Announcement",
           proofLink: "https://lnkd.in/p/gGEhtfar"
         }
       ]
@@ -286,57 +289,89 @@ export const ACHIEVEMENTS = {
     },
     {
       name: "Certifications & Learning",
-      // Sorted newest first: 2026 -> 2025
+      // Verified credentials & available course certificates
       items: [
         {
-          title: "APIsec Certified Practitioner (ACP)",
-          organization: "APIsec University",
-          date: "October 2026",
-          score: "93 / 100",
-          summary: "Covered API authentication & authorization flaws, OWASP API Security Top 10 vulnerabilities, API documentation audits, and server hardening.",
-          proofType: "Verification & Social Proof",
-          proofLink: "https://www.linkedin.com/feed/update/urn:li:activity:7506570341339561984/",
-          verificationLink: "https://app.kajabi.com/certificates/2cc65bcc"
-        },
-        {
-          title: "Prompt Engineering",
-          organization: "Infosys Springboard",
-          date: "2026",
-          summary: "Structured prompt methodologies, context distillation, and LLM orchestration workflows.",
-          proofType: "Credential",
-          proofLink: null
+          title: "Operating System Course: Learn Fundamentals of Operating System",
+          organization: "Scaler Topics",
+          date: "September 2026",
+          summary: "Core operating system concepts: process scheduling, synchronization primitives, memory management, virtual memory paging, and deadlock mitigation.",
+          proofType: "Certificate of Completion",
+          proofLink: "./assets/os_certificate.png",
+          isFile: true,
+          isImage: true
         },
         {
           title: "Claude Code in Action",
           organization: "Anthropic",
-          date: "2026",
-          summary: "Agentic coding environments, tool use orchestration, and terminal workflow integration.",
-          proofType: "Credential",
-          proofLink: null
+          date: "March 2026",
+          summary: "Agentic coding environments, tool-use orchestration, terminal-based developer loops, and model context protocol workflows.",
+          proofType: "Certificate of Completion",
+          proofLink: "./assets/antropic_cer.pdf",
+          isFile: true
+        },
+        {
+          title: "Prompt Engineering",
+          organization: "Infosys Springboard",
+          date: "March 2026",
+          summary: "Structured prompt methodologies, context distillation, few-shot conditioning, and LLM application orchestration workflows.",
+          proofType: "Certificate of Completion",
+          proofLink: "./assets/prompt_engg.pdf",
+          isFile: true
         },
         {
           title: "Getting Started with AI on Jetson Nano",
-          organization: "NVIDIA",
-          date: "2025",
-          summary: "Embedded computer vision, edge deep learning deployment, and TensorRT inference pipeline setup.",
-          proofType: "Credential",
-          proofLink: null
+          organization: "NVIDIA Deep Learning Institute",
+          date: "December 2025",
+          summary: "Edge deep learning deployment, computer vision pipelines, image classification, and real-time TensorRT camera inference.",
+          proofType: "Certificate of Competency",
+          proofLink: "./assets/NVIDIA-JETSON-NANO-CERT.pdf",
+          isFile: true
+        },
+        {
+          title: "Generative AI Literacy",
+          organization: "FutureSkills Prime / NASSCOM",
+          date: "December 2025",
+          summary: "Foundational generative model capabilities, multi-modal applications, prompt design principles, and responsible AI governance.",
+          proofType: "Certificate of Completion",
+          proofLink: "./assets/Genrative_AI_Literacy.pdf",
+          isFile: true
+        },
+        {
+          title: "Artificial Intelligence for All",
+          organization: "Infosys Springboard",
+          date: "December 2025",
+          summary: "Comprehensive survey of artificial intelligence principles, computer vision, natural language processing, and practical industry applications.",
+          proofType: "Certificate of Completion",
+          proofLink: "./assets/AI_FOR_ALL.pdf",
+          isFile: true
         },
         {
           title: "Neural Network & NLP Implementation",
           organization: "Infosys Springboard",
-          date: "2025",
-          summary: "Fundamentals of dense neural architectures, sequence modeling, and tokenization techniques.",
-          proofType: "Credential",
-          proofLink: null
+          date: "December 2025",
+          summary: "Dense neural architectures, backpropagation mathematics, text sequence vectorization, tokenization, and language modeling.",
+          proofType: "Certificate of Completion",
+          proofLink: "./assets/NEURAL-NLP-CER.pdf",
+          isFile: true
         },
         {
-          title: "Generative AI Literacy",
-          organization: "NASSCOM FutureSkills Prime",
-          date: "2025",
-          summary: "Foundational generative model capabilities, evaluation metrics, and responsible AI governance.",
-          proofType: "Credential",
-          proofLink: null
+          title: "AWS Developer Associate: Optimizing AWS",
+          organization: "Infosys Springboard",
+          date: "December 2025",
+          summary: "Curriculum course covering cloud deployment optimization, compute provisioning, and serverless architectures on AWS.",
+          proofType: "Course Completion Certificate",
+          proofLink: "./assets/AWS-CER.pdf",
+          isFile: true
+        },
+        {
+          title: "Brewathon",
+          organization: "AI Brewery · Siddaganga Institute of Technology",
+          date: "December 2025",
+          summary: "Competitive campus hackathon sprint organized by AI Brewery at Siddaganga Institute of Technology, focusing on rapid prototyping, system architecture under pressure, and live demonstration.",
+          proofType: "Certificate of Participation",
+          proofLink: "./assets/hackthon-certificate.pdf",
+          isFile: true
         }
       ]
     }
@@ -383,7 +418,7 @@ export const SKILLS_DATA = [
       { name: "DNS / WHOIS / SSL Forensics", project: "impostr", projectName: "IMPOSTR Analysis" },
       { name: "OpenCV & OCR", project: "lucerna", projectName: "Lucerna & Academic Vision" },
       { name: "Prompt Engineering & Agents", project: "writing", projectName: "LLM Orchestration" },
-      { name: "API Security & OWASP Top 10", project: "achievements", projectName: "APIsec Certified" }
+      { name: "API Security & OWASP Top 10", project: "impostr", projectName: "Secure API Implementation" }
     ]
   },
   {
@@ -404,7 +439,7 @@ export const EDUCATION_DATA = [
     location: "Tumakuru / Bengaluru, India",
     degree: "B.E. Computer Science and Engineering",
     period: "2025 — 2029",
-    metric: "CGPA 9.5",
+    metric: "In Progress",
     isCurrent: true
   },
   {
